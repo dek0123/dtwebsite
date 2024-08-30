@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centers everything by default */
+    background-color: #f4f4f4; /* Optional: adds a background color */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5em; /* Increases the font size */
+    margin-bottom: 20px;
+    color: #333; /* Optional: change the color */
+}
+
+.zeugnisse-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.diplom, .zeugnis {
+    margin-bottom: 40px;
+}
+
+.diplom img, .zeugnis img {
+    width: 60%; /* Set the width of the images */
+    height: auto;
+    display: block; /* Make sure the image is a block element */
+    margin: 0 auto 10px auto; /* Centers the image and adds some space below */
+}
+
+.diplom p, .zeugnis p {
+    font-size: 1.2em; /* Adjusts the size of the description */
+    color: #666; /* Optional: change the text color */
+    margin-top: 10px; /* Adds space above the description */
+}

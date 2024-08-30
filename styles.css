@@ -1,0 +1,180 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #1a1a2e;
+    color: #ffffff;
+}
+
+/* Intro Animation */
+.intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    animation: fadeOut 3s ease forwards;
+}
+
+.intro h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    color: #ffffff;
+    display: inline-block;
+    animation: fadeInOut 2s ease-in-out forwards, breakDown 2s ease 1s forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes breakDown {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100px) rotate(10deg);
+        opacity: 0;
+    }
+}
+
+body.loaded .intro {
+    opacity: 0;
+    transition: opacity 1s ease;
+    visibility: hidden; /* Ensures the intro doesn't block anything */
+}
+
+/* Main Content Styles */
+.side {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    background-color: #162447;
+    opacity: 0;
+    transition: opacity 2s ease;
+    scroll-snap-align: start; /* Ensure sections stack vertically */
+}
+
+body.loaded .side {
+    opacity: 1;
+}
+
+/* Flexbox for aligning images and paragraphs */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Ensure the image and text start from the same horizontal position */
+    gap: 20px;  /* Adds space between the image and paragraph */
+    padding: 20px;  /* Add padding to the entire content block */
+    width: 100%; /* Ensure content takes up the full width */
+}
+
+/* Image styling */
+.content img {
+    max-width: 30%;  /* Ensure consistent image size across pages */
+    height: auto;
+    border: 2px solid #0f3460;
+    object-fit: contain;  /* Ensure the image scales correctly within the bounds */
+    flex-shrink: 0; /* Prevent the image from shrinking in size */
+}
+
+/* Paragraph and Content Block Styling */
+.content p, .content div {
+    flex: 1;  /* Make the paragraph or content div take up the remaining space */
+    margin: 0;
+    padding: 20px;  /* Padding inside the paragraph or content div */
+    line-height: 1.4;  /* Adjust line height for better readability */
+}
+
+/* Headings (Über mich, Studies and Working Experience, My Working Projects) */
+.content p.about-me,
+.content p.experience,
+.content h2 {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Playful font choice */
+    font-size: 1.7rem; /* Slightly increased font size */
+    line-height: 1.2; /* Slightly smaller line spacing */
+    color: #f8f8f2;
+    margin-bottom: 20px;
+    text-align: center; /* Center-align the headings */
+    width: 100%; /* Ensure the heading spans the full width */
+}
+
+/* Menu Button Styling */
+.menu-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #0f3460;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #0f3460;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+/* Dropdown Menu Links Styling */
+.dropdown-menu a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-menu a:hover {
+    background-color: #e94560;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content img {
+        max-width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .content p, .content div {
+        text-align: center;
+    }
+
+    .content p.about-me,
+    .content p.experience,
+    .content h2 {
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+}
